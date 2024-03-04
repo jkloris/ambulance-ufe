@@ -12,6 +12,8 @@ export namespace Components {
         "basePath": string;
     }
     interface JkaAmbulanceWlEditor {
+        "ambulanceId": string;
+        "apiBase": string;
         "entryId": string;
     }
     interface JkaAmbulanceWlList {
@@ -81,6 +83,8 @@ declare namespace LocalJSX {
         "basePath"?: string;
     }
     interface JkaAmbulanceWlEditor {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         "entryId"?: string;
         "onEditor-closed"?: (event: JkaAmbulanceWlEditorCustomEvent<string>) => void;
     }

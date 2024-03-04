@@ -24,12 +24,11 @@
     "start:app": "stencil build --dev --watch --serve",
     "start:mock": "run-s convert-openapi mock-api",
     "build": "stencil build",
-    "start": "stencil build --dev --watch --serve",
+    "start": "run-p -r start:mock start:app",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "openapi": "openapi-generator-cli generate",
-    "test:jest": "jest --config ./jest.config.js"
+    "openapi": "openapi-generator-cli generate"
   },
   "dependencies": {
     "@material/web": "^1.2.0",
