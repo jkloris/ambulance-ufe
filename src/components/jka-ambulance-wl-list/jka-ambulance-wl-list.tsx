@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Host, h, Event, Prop, State} from '@stencil/core';
-import { AmbulanceWaitingListApiFactory, WaitingListEntry } from '../../api/ambulance-wl'
+import { AmbulanceWaitingListApiFactory } from '../../api/ambulance-wl'
 
 @Component({
   tag: 'jka-ambulance-wl-list',
@@ -7,7 +7,7 @@ import { AmbulanceWaitingListApiFactory, WaitingListEntry } from '../../api/ambu
   shadow: true,
 })
 export class JkaAmbulanceWlList {
-  
+
   @Event({ eventName: "entry-clicked"}) entryClicked: EventEmitter<string>;
   @Prop() apiBase: string;
   @Prop() ambulanceId: string;
