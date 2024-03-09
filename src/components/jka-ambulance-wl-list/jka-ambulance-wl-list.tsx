@@ -7,6 +7,7 @@ import { AmbulanceWaitingListApiFactory, WaitingListEntry } from '../../api/ambu
   shadow: true,
 })
 export class JkaAmbulanceWlList {
+  
   @Event({ eventName: "entry-clicked"}) entryClicked: EventEmitter<string>;
   @Prop() apiBase: string;
   @Prop() ambulanceId: string;
