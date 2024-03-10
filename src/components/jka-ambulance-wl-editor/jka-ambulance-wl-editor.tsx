@@ -12,17 +12,17 @@ export class JkaAmbulanceWlEditor {
   @Prop() ambulanceId: string;
   @Prop() apiBase: string;
 
-   @Event({eventName: "editor-closed"}) editorClosed: EventEmitter<string>;
+  @Event({eventName: "editor-closed"}) editorClosed: EventEmitter<string>;
 
-   @State() private duration = 15
-   @State() entry: WaitingListEntry;
-   @State() errorMessage:string;
-   @State() isValid: boolean;
-   @State() conditions: Condition[];
+  @State() private duration = 15
+  @State() entry: WaitingListEntry;
+  @State() errorMessage:string;
+  @State() isValid: boolean;
+  @State() conditions: Condition[];
 
-   private formElement: HTMLFormElement;
+  private formElement: HTMLFormElement;
 
-   private async getWaitingEntryAsync(): Promise<WaitingListEntry> {
+  private async getWaitingEntryAsync(): Promise<WaitingListEntry> {
     if ( !this.entryId ) {
        this.isValid = false;
        return undefined
@@ -52,7 +52,7 @@ export class JkaAmbulanceWlEditor {
        this.errorMessage = `Cannot retrieve list of waiting patients: ${err.message || "unknown"}`
     }
     return undefined;
- }
+  }
 
  private async getConditions(): Promise<Condition[]> {
   try {
