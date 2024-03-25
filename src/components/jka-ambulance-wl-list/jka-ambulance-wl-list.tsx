@@ -8,7 +8,7 @@ import { AmbulanceWaitingListApiFactory } from '../../api/ambulance-wl'
 })
 export class JkaAmbulanceWlList {
 
-  @Event({ eventName: "entry-clicked"}) entryClicked: EventEmitter<string>;
+  @Event({ eventName: "entry-clicked", composed:true},) entryClicked: EventEmitter<string>;
   @Prop() apiBase: string;
   @Prop() ambulanceId: string;
   @State() errorMessage: string;
