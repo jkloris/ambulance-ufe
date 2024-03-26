@@ -8,7 +8,7 @@ import { AmbulanceWaitingListApiFactory } from '../../api/ambulance-wl'
 })
 export class JkaAmbulanceWlList {
 
-  @Event({ eventName: "entry-clicked", composed:true},) entryClicked: EventEmitter<string>;
+  @Event({ eventName: "entry-clicked", composed:true}) entryClicked: EventEmitter<string>;
   @Prop() apiBase: string;
   @Prop() ambulanceId: string;
   @State() errorMessage: string;
@@ -52,7 +52,14 @@ export class JkaAmbulanceWlList {
       const response = await AmbulanceWaitingListApiFactory(undefined, this.apiBase).
           getWaitingListEntries(this.ambulanceId)
       if (response.status < 299) {
-        return response.data;
+        let waitingListEntry = {
+          'id': '1',
+          'patientId': '123',
+          'waitingSince': new Date().toISOString(),
+          'estimatedStart': new Date().toISOString(),
+          'estimatedDurationMinutes': 30
+        };
+        return [waitingListEntry]///response.data;
       } else {
         this.errorMessage = `Cannot retrieve list of waiting patients: ${response.statusText}`
       }
