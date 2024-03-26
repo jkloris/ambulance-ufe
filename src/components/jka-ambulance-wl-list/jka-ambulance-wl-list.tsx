@@ -52,14 +52,7 @@ export class JkaAmbulanceWlList {
       const response = await AmbulanceWaitingListApiFactory(undefined, this.apiBase).
           getWaitingListEntries(this.ambulanceId)
       if (response.status < 299) {
-        let waitingListEntry = {
-          'id': '1',
-          'patientId': '123',
-          'waitingSince': new Date().toISOString(),
-          'estimatedStart': new Date().toISOString(),
-          'estimatedDurationMinutes': 30
-        };
-        return [waitingListEntry]///response.data;
+        return response.data;
       } else {
         this.errorMessage = `Cannot retrieve list of waiting patients: ${response.statusText}`
       }
